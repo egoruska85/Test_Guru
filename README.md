@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Entity list
+
+* Пользователи - Users
+
+* Вопросы - Questions
+
+* Ответы - Answers
+
+* Результаты - Results
