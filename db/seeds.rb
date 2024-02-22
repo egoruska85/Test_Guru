@@ -30,28 +30,32 @@ Test.create!([
 
 p "Создано #{Test.count} тестов"
 
+tests = Test.all
+
 Question.create!([
-                {body: "Какой язык Ruby", test_id: 1},
-                {body: "Где в основном используется язык програмирования Ruby", test_id: 1},
-                {body: "Для чего нужен HTML", test_id: 2},
-                {body: "Для чего нужен CSS", test_id: 2},
-                {body: "Для чего нужен Javascript", test_id: 3},
-                {body: "Для чего нужен JQuery", test_id: 3},
-                {body: "Что такое Active Record", test_id: 7},
-                {body: "Что такое MVC", test_id: 7}
+                {body: "Какой язык Ruby", test_id: tests[0].id},
+                {body: "Где в основном используется язык програмирования Ruby", test_id: tests[0].id},
+                {body: "Для чего нужен HTML", test_id: tests[1].id},
+                {body: "Для чего нужен CSS", test_id: tests[1].id},
+                {body: "Для чего нужен Javascript", test_id: tests[2].id},
+                {body: "Для чего нужен JQuery", test_id: tests[2].id},
+                {body: "Что такое Active Record", test_id: tests[6].id},
+                {body: "Что такое MVC", test_id: tests[6].id}
                 ])
 
 p "Создано #{Question.count} вопросов"
 
+questions = Question.all
+
 Answer.create!([
-              {body: "Динамический, рефлективный, интерпретируемый высокоуровневый язык программирования", question_id: 1, correct: true},
-              {body: "Язык ввода вывода", question_id: 1, correct: false},
-              {body: "В основном в фреймворке Ruby on Rails. Так же существует фреймворки как Sinatra, Merb, Hanami и т п.", question_id: 2, correct: true},
-              {body: "HTML для написания сервеной части веб-приложения", question_id: 3, correct: false},
-              {body: "HTML для создания веб страниц клиентской части", question_id: 3, correct: true},
-              {body: "CSS для написания стилей для веб страниц", question_id: 3, correct: true},
-              {body: "Active Record это M в MVC - модель - которая является слоем в системе, ответственным за представление бизнес-логики и данных", question_id: 7, correct: true},
-              {body: "MVC расшифровывается как «модель-представление-контроллер", question_id: 8, correct: true}
+              {body: "Динамический, рефлективный, интерпретируемый высокоуровневый язык программирования", question_id: questions[0].id, correct: true},
+              {body: "Язык ввода вывода", question_id: questions[0].id, correct: false},
+              {body: "В основном в фреймворке Ruby on Rails. Так же существует фреймворки как Sinatra, Merb, Hanami и т п.", question_id: questions[1].id, correct: true},
+              {body: "HTML для написания сервеной части веб-приложения", question_id: questions[2].id, correct: false},
+              {body: "HTML для создания веб страниц клиентской части", question_id: questions[2].id, correct: true},
+              {body: "CSS для написания стилей для веб страниц", question_id: questions[2].id, correct: true},
+              {body: "Active Record это M в MVC - модель - которая является слоем в системе, ответственным за представление бизнес-логики и данных", question_id: questions[6].id, correct: true},
+              {body: "MVC расшифровывается как «модель-представление-контроллер", question_id: questions[7].id, correct: true}
               ])
 
 p "Создано #{Answer.count} ответов"
@@ -59,11 +63,14 @@ p "Создано #{Answer.count} ответов"
 User.create!([
             {username: "Vasiliy"}
               ])
+
+users = User.all
+
 TestsUser.create!([
-                  {user_id: 1, test_id: 1},
-                  {user_id: 1, test_id: 3},
-                  {user_id: 1, test_id: 4},
-                  {user_id: 1, test_id: 7},
+                  {user_id: users[0].id, test_id: tests[0].id},
+                  {user_id: users[0].id, test_id: tests[2].id},
+                  {user_id: users[0].id, test_id: tests[3].id},
+                  {user_id: users[0].id, test_id: tests[6].id},
                   ])
 
 p "Создано #{User.count} пользователей"
