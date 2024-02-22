@@ -4,7 +4,6 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
 
   def self.find_test_by_category(name)
-    category = Category.where(title: name)
-    Test.where(category: category).order(id: :desc)
+    Test.joins(:category).where(category: {title: name})
   end
 end

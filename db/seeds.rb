@@ -16,14 +16,16 @@ Category.create!([
 
 p "Создано #{Category.count} категории"
 
+categories = Category.all
+
 Test.create!([
-              {title: "Ruby", level: 1, category_id: 1},
-              {title: "Python", level: 1, category_id: 1},
-              {title: "Basing webpage codding", level: 2, category_id: 2},
-              {title: "Webpage codding profi", level: 2, category_id: 3},
-              {title: "Movie constructions", level: 1, category_id: 5},
-              {title: "3d's Max and Blender", level: 2, category_id: 6},
-              {title: "Ruby on Rails", level: 3, category_id: 4}
+              {title: "Ruby", level: 1, category_id: categories[0].id},
+              {title: "Python", level: 1, category_id: categories[0].id},
+              {title: "Basing webpage codding", level: 2, category_id: categories[1].id},
+              {title: "Webpage codding profi", level: 2, category_id: categories[1].id},
+              {title: "Movie constructions", level: 1, category_id: categories[4].id},
+              {title: "3d's Max and Blender", level: 2, category_id: categories[5].id},
+              {title: "Ruby on Rails", level: 3, category_id: categories[3].id}
               ])
 
 p "Создано #{Test.count} тестов"
